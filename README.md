@@ -19,7 +19,7 @@ def foo(my_arg, my_keyword_arg=100):
     print(i)
 ```
 
-Then call the function to rut it inside a Tread
+Then call the function to rut it inside a Thread
 
 ```python
 foo('Test')
