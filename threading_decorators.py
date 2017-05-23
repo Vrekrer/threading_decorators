@@ -10,10 +10,10 @@ class _Exception_StopThread(Exception):
     pass
 
 
-class Treaded_Function(object):
+class Threaded_Function(object):
 
-    def __init__(self, traget):
-        self._traget = traget
+    def __init__(self, target):
+        self._target = target
         self.thread = None
 
     def Stop(self):
@@ -22,20 +22,20 @@ class Treaded_Function(object):
 
     def __call__(self, *args, **kwargs):
 
-        def stoppable_traget():
+        def stoppable_target():
             try:
-                self._traget(*args, **kwargs)
+                self._target(*args, **kwargs)
             except _Exception_StopThread:
                 pass
 
-        self.thread = threading.Thread(target=stoppable_traget)
+        self.thread = threading.Thread(target=stoppable_target)
         self.thread._TD_stop = False
         self.thread.start()
 
 
-def AsQThread(traget):
+def as_thread(target):
     '''Executes traget as a thread'''
-    return Treaded_Function(traget)
+    return Threaded_Function(target)
 
 
 def check_stop():
