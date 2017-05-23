@@ -4,7 +4,7 @@ Decorators for easy threading in Python
 
 ## Usage
 
-Just use Treaded_Function as a decorator for any function
+Use Treaded_Function as a decorator for any function
 
 ```python
 import threading_decorators as ThD
@@ -19,7 +19,7 @@ def foo(my_arg, my_keyword_arg=100):
     print(i)
 ```
 
-Then just call the function to rut it inside a Tread
+Then call the function to rut it inside a Tread
 
 ```python
 foo('Test')
