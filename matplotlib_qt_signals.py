@@ -4,6 +4,7 @@
 # email : diegogch@cbpf.br / diego.gonzalez.chavez@gmail.com
 
 import matplotlib
+import functools
 
 _bk = matplotlib.get_backend()
 if _bk == 'Qt5Agg':
@@ -23,6 +24,10 @@ class Main_Loop_Caller(QtCore.QObject):
         self.args = list()
         self.kwargs = dict()
         self.signal.connect(self._target)
+
+    def __get__(self, obj, objtype):
+        """Support instance methods."""
+        return functools.partial(self.__call__, obj)
 
     def _target(self):
         self.func(*self.args, **self.kwargs)
