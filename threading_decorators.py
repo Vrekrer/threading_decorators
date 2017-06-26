@@ -4,7 +4,7 @@
 # email : diegogch@cbpf.br / diego.gonzalez.chavez@gmail.com
 
 import threading
-import functools
+import types
 
 
 class _Exception_StopThread(Exception):
@@ -21,9 +21,9 @@ class Threaded_Function(object):
         if self.thread is not None:
             self.thread._TD_stop = True
 
-    def __get__(self, obj, objtype):
-        """Support instance methods."""
-        return functools.partial(self.__call__, obj)
+    def __get__(self, instance, owner):
+        # Allows the use of the decorator inside classes
+        return types.MethodType(self, instance)
 
     def __call__(self, *args, **kwargs):
         def stoppable_target():
