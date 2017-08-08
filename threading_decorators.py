@@ -17,7 +17,7 @@ class Threaded_Function(object):
         self._target = target
         self.thread = None
 
-    def Stop(self):
+    def stop(self):
         if self.thread is not None:
             self.thread._TD_stop = True
 
