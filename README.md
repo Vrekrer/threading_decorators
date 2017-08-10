@@ -25,8 +25,8 @@ Then call the function to rut it inside a Thread
 foo('Test')
 ```
 
-if check_stop() where used inside the function, then calling the Stop method will stop the execution of the function at the next check_stop() point 
+if check_stop() where used inside the function, then calling the stop method will stop the execution of the function at the next check_stop() point 
 
 ```python
-foo.Stop()
+foo.stop()
 ```
