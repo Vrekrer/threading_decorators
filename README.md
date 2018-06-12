@@ -4,12 +4,12 @@ Decorators for easy threading in Python
 
 ## Usage
 
-Use Treaded_Function as a decorator for any function
+Use Threaded_Function as a decorator for any function
 
 ```python
 import threading_decorators as ThD
 
-@ThD.Treaded_Function
+@ThD.Threaded_Function
 def foo(my_arg, my_keyword_arg=100):
     # Do something
     print(my_arg)
